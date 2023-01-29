@@ -1,0 +1,21 @@
+class Solution(object):
+    def pivotIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        minPivot = 1000000
+        pivotFound = False
+        for i in range(len(nums)):
+            leftSum = sum(nums[:i])
+            rightSum = sum(nums[i+1:])
+
+            if leftSum == rightSum:
+                pivotFound = True
+                minPivot = min(minPivot,i)
+
+        if pivotFound == False:
+            return -1
+        
+        else:
+            return minPivot
