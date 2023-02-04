@@ -1,0 +1,30 @@
+        '''
+        naive solution O(n^2)
+        '''
+        
+        # max_diff = -10000000000
+        # for i in range(len(prices)):
+
+        #     pivot = prices[i]
+        #     for j in range(i,len(prices)):
+        #         ele = prices[j]
+        #         diff  = ele - pivot
+        #         print(pivot,ele,diff)
+        #         max_diff = max(max_diff,diff)
+        # return max_diff
+        
+        '''
+        Better and efficient solution O(n)
+        '''
+        max_diff = 0
+        curr_min = 10000
+        for i in range(len(prices)):
+            if prices[i] < curr_min: 
+                curr_min = prices[i]
+
+            else:
+                diff = prices[i] - curr_min
+                max_diff = max(max_diff,diff)
+
+        return max_diff
+
